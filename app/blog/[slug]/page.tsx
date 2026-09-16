@@ -77,7 +77,7 @@ export default async function ArtikullPage({ params }: Params) {
           <div className="space-y-5 text-[17px] leading-[1.8] text-ink/90">
             {post.content
               .split(/\n\s*\n/)
-              .filter((p) => p.trim())
+              .filter((p: string) => p.trim())
               .map((p, i) => (
                 <p key={i} className="whitespace-pre-line">
                   {p.trim()}

@@ -9,13 +9,24 @@ import { prisma } from "@/app/lib/prisma";
 
 export const dynamic = "force-dynamic";
 
-type Params = { params: Promise<{ id: string }> };
+type Params = {
+  params: Promise<{ id: string }>;
+};
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Params): Promise<Metadata> {
   const { id } = await params;
-  const p = await prisma.project.findUnique({ where: { slug: id } });
 
-  if (!p) return { title: "Projekti s'u gjet | Magnet Media" };
+  const p = await prisma.project.findUnique({
+    where: { slug: id },
+  });
+
+  if (!p) {
+    return {
+      title: "Projekti s'u gjet | Magnet Media",
+    };
+  }
 
   return {
     title: `${p.client} — ${p.type} | Magnet Media`,
@@ -25,13 +36,23 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function ProjektPage({ params }: Params) {
   const { id } = await params;
-  const p = await prisma.project.findUnique({ where: { slug: id } });
 
-  if (!p || !p.published) notFound();
+  const p = await prisma.project.findUnique({
+    where: { slug: id },
+  });
+
+  if (!p || !p.published) {
+    notFound();
+  }
 
   const tjera = await prisma.project.findMany({
-    where: { published: true, NOT: { id: p.id } },
-    orderBy: { createdAt: "desc" },
+    where: {
+      published: true,
+      NOT: { id: p.id },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
     take: 3,
   });
 
@@ -176,38 +197,40 @@ export default async function ProjektPage({ params }: Params) {
             </Reveal>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
-              {tjera.map((t, i) => (
-                <Reveal key={t.id} delay={i * 90}>
-                  <Link
-                    href={`/punet/${t.slug}`}
-                    className="group block"
-                  >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
-                      <Image
-                        src={t.image}
-                        alt={t.client}
-                        fill
-                        sizes="(min-width: 640px) 30vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-
-                    <div className="flex items-center justify-between gap-3 pt-3">
-                      <div>
-                        <h3 className="font-display text-base font-semibold">
-                          {t.client}
-                        </h3>
-
-                        <p className="mt-0.5 text-sm text-mute">
-                          {t.type}
-                        </p>
+              {tjera.map(
+                (t: (typeof tjera)[number], i: number) => (
+                  <Reveal key={t.id} delay={i * 90}>
+                    <Link
+                      href={`/punet/${t.slug}`}
+                      className="group block"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
+                        <Image
+                          src={t.image}
+                          alt={t.client}
+                          fill
+                          sizes="(min-width: 640px) 30vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
                       </div>
 
-                      <ArrowRight className="h-4 w-4 shrink-0 text-gold-deep transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
+                      <div className="flex items-center justify-between gap-3 pt-3">
+                        <div>
+                          <h3 className="font-display text-base font-semibold">
+                            {t.client}
+                          </h3>
+
+                          <p className="mt-0.5 text-sm text-mute">
+                            {t.type}
+                          </p>
+                        </div>
+
+                        <ArrowRight className="h-4 w-4 shrink-0 text-gold-deep transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </Link>
+                  </Reveal>
+                )
+              )}
             </div>
           </div>
         </section>

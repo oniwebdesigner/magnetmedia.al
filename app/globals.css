@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* E çelëta */
+  --color-bg: #f6f4ef;
+  --color-panel: #ffffff;
+  --color-border: #e8e4da;
+  --color-ink: #1e1b16;
+  --color-mute: #6f695e;
+
+  /* E errëta e ngrohtë — espresso, jo e zezë e plotë */
+  --color-espresso: #171410;
+  --color-espresso-soft: #221d16;
+  --color-paper: #f5f1e8;
+
+  /* Aksenti gold */
+  --color-gold: #c6a15b;
+  --color-gold-light: #e0c184;
+  --color-gold-deep: #a5813d;  /* për tekst të vogël gold mbi të bardhë */
+  --color-gold-tint: #f4ecdc;  /* sfond i lehtë */
+
+  --font-display: var(--font-sora), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #ffffff;
+}
+
+/* ---------- Animacione të lehta ---------- */
+
+/* Shfaqje me scroll (komponenti Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hyrja e heros në ngarkim */
+@keyframes heroUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-up {
+  animation: heroUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

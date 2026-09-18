@@ -50,7 +50,7 @@ export default function Navbar() {
        <Link href="/" className="flex items-center gap-2.5">
   {/* eslint-disable-next-line @next/next/no-img-element */}
  <Image
-  src="/logo.png"
+  src="/logo/logo.png"
   alt="Magnet Media"
   width={64}
   height={64}

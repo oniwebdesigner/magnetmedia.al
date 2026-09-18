@@ -48,7 +48,11 @@ export default function Navbar() {
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
        <Link href="/" className="flex items-center gap-2.5">
   {/* eslint-disable-next-line @next/next/no-img-element */}
-  <img src="/magnetmedia.png" alt="Magnet Media" className="h-16 w-auto" />
+ <img
+  src="/magnetmedia.png"
+  alt="Magnet Media"
+  className="h-16 w-auto"
+/>
 </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Menuja kryesore">

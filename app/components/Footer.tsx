@@ -13,7 +13,7 @@ export default function Footer() {
           <Link href="/" className="flex items-center gap-2.5">
   {/* eslint-disable-next-line @next/next/no-img-element */}
   <img
-  src="/magnetmedia.png"
+  src="/logo.png"
   alt="Magnet Media"
   className="h-16 w-auto"
 />

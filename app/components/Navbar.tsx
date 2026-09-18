@@ -7,6 +7,7 @@ import Image from "next/image";
 import { navLinks } from "@/app/lib/nav";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
@@ -48,9 +49,12 @@ export default function Navbar() {
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
        <Link href="/" className="flex items-center gap-2.5">
   {/* eslint-disable-next-line @next/next/no-img-element */}
- <img
+ <Image
   src="/logo.png"
   alt="Magnet Media"
+  width={64}
+  height={64}
+  unoptimized
   className="h-16 w-auto"
 />
 </Link>

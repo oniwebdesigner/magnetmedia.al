@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { LogoM } from "@/app/components/icons";
 import { navLinks, serviceLinks, contact } from "@/app/lib/nav";
 
@@ -12,9 +13,12 @@ export default function Footer() {
         <div>
           <Link href="/" className="flex items-center gap-2.5">
   {/* eslint-disable-next-line @next/next/no-img-element */}
-  <img
+ <Image
   src="/logo.png"
   alt="Magnet Media"
+  width={64}
+  height={64}
+  unoptimized
   className="h-16 w-auto"
 />
 </Link>

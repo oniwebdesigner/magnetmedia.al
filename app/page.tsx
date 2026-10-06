@@ -12,7 +12,8 @@ import { prisma } from "@/app/lib/prisma";
    kalime të buta (pa të zezë sterr, pa prerje të forta); Reveal on-scroll.
    ================================================================ */
 
-const IMG = "/magnetmedia.jpeg";
+const IMG = "/office.png";
+const IMG2 = "/studio2.png";
 
 /* ---------- TË DHËNAT ---------- */
 
@@ -22,8 +23,25 @@ const clients = [
   "daylux",
   "ITALSTONE",
   "Oliva Park",
-  "VM Resort",
+  "VM Resort & Spa",
+  "Grand VM",
   "Global Pharma",
+  "Mon Cheri",
+  "Nova Home",
+  "Euro 1",
+  "Indian Eye Institute",
+  "Indian Optical Center",
+  "Rosmann Lala",
+  "Mikel Coffee",
+  "Pixie by Paola",
+  "Golden Dental",
+  "Gbt by Dr DURO",
+  "Linx",
+  "Agel Baby Spa",
+  "Haris Hair Medical",
+  "Diol Hotel",
+  "Elartis Pharmaceutical",
+  "Kolegji Universitar i Biznesit",
 ];
 
 type Service = {
@@ -185,24 +203,45 @@ function Hero() {
             </Link>
           </div>
         </div>
-
-        <div className="mt-16 border-t border-white/10 pt-8 lg:mt-24">
-          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 lg:justify-between">
-            {clients.map((c) => (
-              <li
-                key={c}
-                className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-paper/45 transition-colors hover:text-paper"
-              >
-                {c}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
+
+        {/* Shirit klientësh që lëviz majtas → djathtas */}
+        <div className="mt-16 border-t border-white/10 pt-10 lg:mt-24">
+          <style>{`
+            @keyframes marquee-ltr {
+              from { transform: translateX(-50%); }
+              to { transform: translateX(0); }
+            }
+            .marquee-track {
+              animation: marquee-ltr 70s linear infinite;
+            }
+            .marquee-track:hover {
+              animation-play-state: paused;
+            }
+            .marquee-mask {
+              -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            }
+          `}</style>
+          <div className="marquee-mask overflow-hidden py-2">
+            <ul className="marquee-track flex w-max items-center">
+              {[...clients, ...clients].map((c, i) => (
+                <li
+                  key={`${c}-${i}`}
+                  aria-hidden={i >= clients.length}
+                  className="mr-3"
+                >
+                  <span className="block whitespace-nowrap rounded-full mb-20 border border-gold/30 bg-white/[0.04] px-6 py-2.5 font-display text-xs font-semibold uppercase tracking-[0.14em] text-paper/60 backdrop-blur-sm transition-all duration-300 hover:border-gold-light hover:bg-gold/10 hover:text-gold-light">
+                    {c}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
     </section>
   );
 }
-
 function Services() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24">
@@ -307,7 +346,7 @@ function About() {
           <div className="relative">
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[2rem]">
               <Image
-                src={IMG}
+                src={IMG2}
                 alt="Ekipi i Magnet Media"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"

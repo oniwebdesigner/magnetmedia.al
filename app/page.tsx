@@ -13,7 +13,7 @@ import { prisma } from "@/app/lib/prisma";
    ================================================================ */
 
 const IMG = "/office.png";
-const IMG2 = "/studio2.png";
+const IMG2 = "/Studio-optimized.webp";
 
 /* ---------- TË DHËNAT ---------- */
 

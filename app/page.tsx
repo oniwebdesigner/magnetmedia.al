@@ -18,8 +18,6 @@ const IMG2 = "/Studio-optimized.webp";
 /* ---------- TË DHËNAT ---------- */
 
 const clients = [
-  "abi bank",
-  "KORRES",
   "daylux",
   "ITALSTONE",
   "Oliva Park",

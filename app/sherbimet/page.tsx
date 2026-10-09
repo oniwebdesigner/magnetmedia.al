@@ -45,7 +45,7 @@ const services: Service[] = [
     id: "reklamim-outdoor",
     title: "Reklamim Outdoor",
     intro:
-      "Prezencë e fortë në hapësirat publike — brandi yt i dukshëm kudo që lëviz audienca jote.",
+      "Prezencë e fortë në hapësirat publike, brandi yt i dukshëm kudo që lëviz audienca jote.",
     image: "/sherbimet/outdoor.png",
     items: [
       "Fushata billboard",
@@ -59,7 +59,7 @@ const services: Service[] = [
     id: "evente",
     title: "Evente",
     intro:
-      "Momente që mbahen mend — nga koncepti kreativ te ekzekutimi i përsosur.",
+      "Momente që mbahen mend nga koncepti kreativ te ekzekutimi i përsosur.",
     image: "/sherbimet/evente.png",
     items: ["Koncept kreativ", "Planifikim & mbështetje eventesh", "Lançime"],
   },
@@ -82,7 +82,7 @@ const services: Service[] = [
     id: "reklamim-digjital",
     title: "Reklamim Digjital",
     intro:
-      "Fushata të matshme që sjellin trafik dhe konvertime — buxheti yt i shpenzuar me zgjuarsi.",
+      "Fushata të matshme që sjellin trafik dhe konvertime, buxheti yt i shpenzuar me zgjuarsi.",
     image: "/sherbimet/reklamim.png",
     items: ["Meta Ads", "Google Ads", "Fushata në portale online"],
   },
@@ -91,7 +91,7 @@ const services: Service[] = [
     id: "branding-identitet",
     title: "Branding & Identitet",
     intro:
-      "Identitete unike që e bëjnë brandin tënd të paharrueshëm — nga logoja te çdo pikë kontakti.",
+      "Identitete unike që e bëjnë brandin tënd të paharrueshëm, nga logoja te çdo pikë kontakti.",
     image: "/sherbimet/branding.png",
     items: ["Dizajn logoje", "Brandbook", "Asete brandi & materiale"],
   },
@@ -100,7 +100,7 @@ const services: Service[] = [
     id: "marketing-digjital",
     title: "Marketing Digjital",
     intro:
-      "Prezencë e qëndrueshme online — përmbajtje dhe fushata që ndërtojnë komunitet rreth brandit.",
+      "Prezencë e qëndrueshme online, përmbajtje dhe fushata që ndërtojnë komunitet rreth brandit.",
     image: "/sherbimet/marketing.png",
     items: ["Koncept & dizajn fushate", "Menaxhim rrjetesh sociale"],
   },
@@ -109,7 +109,7 @@ const services: Service[] = [
     id: "influencer-marketing",
     title: "Influencer Marketing",
     intro:
-      "Zëra autentikë që flasin për brandin tënd — partneritete me kreatorët e duhur.",
+      "Zëra autentikë që flasin për brandin tënd, partneritete me kreatorët e duhur.",
     image: "/sherbimet/influencer.png",
     items: ["Fushata me kreatorë", "Partneritete brandi"],
   },

@@ -12,7 +12,7 @@ import { prisma } from "@/app/lib/prisma";
    kalime të buta (pa të zezë sterr, pa prerje të forta); Reveal on-scroll.
    ================================================================ */
 
-const IMG = "/office.png";
+const IMG = "/magnet-media-office.jpg";
 const IMG2 = "/Studio-optimized.webp";
 
 /* ---------- TË DHËNAT ---------- */
